@@ -8,10 +8,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./dist/app.js",
+    "dev": "ts-node-dev fundamentos/app.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "license": "ISC"
 }

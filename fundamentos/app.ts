@@ -1,14 +1,25 @@
-const soma = (a: number, b: number) => {
-    console.log(a + b);  
-}
-
-soma(2, 2);
-/* soma(2, "Costa") Daria um erro:  Argument of type 'string' is not assignable to parameter of type 'number'. */
+import { PeopleAccount } from './class/PeopleAccount';
+import { CompanyAccount } from './class/CompanyAccount'
 
 
+const newPeopleAccount: PeopleAccount = new PeopleAccount(200, 'Polliana', 321)
+/* console.log(newPeopleAccount);
+
+newPeopleAccount.deposit()
+newPeopleAccount.setName('Paulo')
+console.log(newPeopleAccount.getName());
+console.log(newPeopleAccount); */
 
 
 
 
+const newCompanhAccount: CompanyAccount = new CompanyAccount('DanCompany', 456)
 
+console.log(newCompanhAccount);
+
+
+/* console.log(newCompanhAccount);
+console.log(newCompanhAccount.deposit());
+
+newCompanhAccount.deposit() */
 
