@@ -1,27 +1,18 @@
-import { Card } from "./components/Card";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import { Login } from "./components/Login";
+import { Home } from "./components/Home";
 
 function App() {
   return (
-    <>
+    <Router>
       <Layout>
-        <Card
-          id={1}
-          paragraph="Component HTML5"
-          details="Para estruturar páginas web"
-        />
-        <Card
-          id={2}
-          paragraph="Component react"
-          details="para dar agilidade a pagina"
-        />
-        <Card
-          id={3}
-          paragraph="Component Mongo"
-          details="Backend agil e seguro"
-        />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </Layout>
-    </>
+    </Router>
   );
 }
 
