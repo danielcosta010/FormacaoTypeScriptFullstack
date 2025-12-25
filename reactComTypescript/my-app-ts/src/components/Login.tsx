@@ -14,44 +14,52 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (email && password) {
-      navigate("/");
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email === 'dan@gmail.com' && password === '1234') {
+      localStorage.setItem("auth", "true")
+      navigate("/dashboard");
+    } else {
+      alert('Erro: email ou senha iválidos')
     }
   };
 
   return (
-    <FormControl bg="brand.800" p="4" color="white" borderRadius="10" w="320px" h="420px" boxShadow='dark-lg'  rounded='md'>
-      <Flex direction="column" gap="6" align="center" h="full" justify="center">
-        <h1>Faça Login</h1>
-        <VStack w="full" spacing="4">
-          <FormControl>
-            <FormLabel fontSize="sm">Email</FormLabel>
-            <Input
-              type="email"
-              placeholder="Digite seu email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              bg="white"
-              color="black"
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel fontSize="sm">Senha</FormLabel>
-            <Input
-              type="password"
-              placeholder="Digite sua senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              bg="white"
-              color="black"
-            />
-          </FormControl>
-          <Button colorScheme="brand" size="md" w="full" onClick={handleLogin}>
-            Entrar
-          </Button>
-        </VStack>
-      </Flex>
-    </FormControl>
+    <form onSubmit={handleLogin}>
+      <FormControl bg="brand.800" p="4" color="white" borderRadius="10" w="320px" h="420px" boxShadow='dark-lg'  rounded='md'>
+        <Flex direction="column" gap="6" align="center" h="full" justify="center">
+          <h1>Faça Login</h1>
+          <VStack w="full" spacing="4">
+            <FormControl isRequired>
+              <FormLabel fontSize="sm">Email</FormLabel>
+              <Input
+                type="email"
+                placeholder="Digite seu email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                bg="white"
+                color="black"
+                required
+              />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel fontSize="sm">Senha</FormLabel>
+              <Input
+                type="password"
+                placeholder="Digite sua senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                bg="white"
+                color="black"
+                required
+              />
+            </FormControl>
+            <Button type="submit" colorScheme="brand" size="md" w="full">
+              Entrar
+            </Button>
+          </VStack>
+        </Flex>
+      </FormControl>
+    </form>
   );
 };

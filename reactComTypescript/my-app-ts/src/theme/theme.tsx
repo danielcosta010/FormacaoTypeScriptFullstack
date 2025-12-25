@@ -19,6 +19,7 @@ const colors = {
     700: "#a855f7",   // Roxo mais vibrante
     800: "#e4105d",   // Vermelho
     900: "#991b1b",   // Vermelho muito escuro
+    950: "#22212118"
   },
 };
 
